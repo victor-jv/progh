@@ -41,11 +41,11 @@ async function agendarExclusao() {
     const minuto = horarioBrasilia.getMinutes();
 
     // Verifica se o horário atual é 20:35
-    if (hora === 20 && minuto === 54) {
+    if (hora === 20 && minuto === 57) {
       console.log("🕒 Executando exclusão automática...");
       await excluirTodosDados();
     } else {
-      console.log(`🕒 O horário de execução será às 20:54. Hora atual: ${hora}:${minuto}`);
+      console.log(`🕒 O horário de execução será às 20:57. Hora atual: ${hora}:${minuto}`);
     }
   } catch (error) {
     console.error("❌ Erro ao obter o horário da API:", error);
