@@ -31,7 +31,7 @@ async function excluirTodosDados() {
 }
 
 // Agendar a execução todos os dias às 20:35
-cron.schedule("35 20 * * *", () => {
+cron.schedule("44 20 * * *", () => {
   console.log("🕒 Executando exclusão automática...");
   excluirTodosDados();
 });
