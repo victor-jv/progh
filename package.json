@@ -1,0 +1,14 @@
+{
+  "name": "firebase-scheduler",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "firebase": "^11.3.1",
+    "firebase-admin": "^11.11.1",
+    "node-cron": "^3.0.3"
+  }
+}
