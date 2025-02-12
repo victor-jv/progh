@@ -30,10 +30,31 @@ async function excluirTodosDados() {
   }
 }
 
-// Agendar a execução todos os dias às 20:35
-cron.schedule("44 20 * * *", () => {
-  console.log("🕒 Executando exclusão automática...");
-  excluirTodosDados();
+// Função para agendar a execução com base no horário da API
+async function agendarExclusao() {
+  try {
+    const response = await fetch('https://timeapi.io/api/Time/current/zone?timeZone=America/Sao_Paulo');
+    const data = await response.json();
+    
+    const horarioBrasilia = new Date(data.dateTime);
+    const hora = horarioBrasilia.getHours();
+    const minuto = horarioBrasilia.getMinutes();
+
+    // Verifica se o horário atual é 20:35
+    if (hora === 20 && minuto === 49) {
+      console.log("🕒 Executando exclusão automática...");
+      await excluirTodosDados();
+    } else {
+      console.log(`🕒 O horário de execução será às 20:35. Hora atual: ${hora}:${minuto}`);
+    }
+  } catch (error) {
+    console.error("❌ Erro ao obter o horário da API:", error);
+  }
+}
+
+// Verifica o horário a cada minuto
+cron.schedule("* * * * *", () => {
+  agendarExclusao();
 });
 
 // Mantém o processo rodando
