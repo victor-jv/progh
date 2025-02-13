@@ -45,7 +45,6 @@ async function agendarExclusao() {
       console.log("🕒 Executando exclusão automática...");
       await excluirTodosDados();
     } else {
-      console.log(`🕒 O horário de execução será às 20:57. Hora atual: ${hora}:${minuto}`);
     }
   } catch (error) {
     console.error("❌ Erro ao obter o horário da API:", error);
