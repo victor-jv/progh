@@ -41,7 +41,7 @@ async function agendarExclusao() {
     const minuto = horarioBrasilia.getMinutes();
 
     // Verifica se o horário atual é 20:35
-    if (hora === 6 && minuto === 59) {
+    if (hora === 6 && minuto === 38) {
       console.log("🕒 Executando exclusão automática...");
       await excluirTodosDados();
     } else {
@@ -55,6 +55,3 @@ async function agendarExclusao() {
 cron.schedule("* * * * *", () => {
   agendarExclusao();
 });
-
-// Mantém o processo rodando
-console.log("🚀 Script executado com sucesso!");
